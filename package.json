@@ -5,6 +5,9 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@apollo/client": "^3.6.6",
+    "cross-fetch": "^3.1.5",
+    "dotenv": "^16.0.1",
     "gatsby": "^4.15.2",
     "gatsby-plugin-gatsby-cloud": "^4.15.0",
     "gatsby-plugin-image": "^2.15.1",
@@ -13,11 +16,15 @@
     "gatsby-plugin-react-helmet": "^5.15.0",
     "gatsby-plugin-sharp": "^4.15.1",
     "gatsby-source-filesystem": "^4.15.0",
+    "gatsby-source-wordpress": "^6.16.0",
+    "gatsby-theme-headless-wordpress": "^0.1.10",
     "gatsby-transformer-sharp": "^4.15.1",
+    "html-react-parser": "^1.4.14",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "wpgravitybundle": "^0.18.2"
   },
   "devDependencies": {
     "prettier": "^2.6.2"

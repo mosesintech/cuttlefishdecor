@@ -1,0 +1,782 @@
+<style type="text/css" media="screen">
+    #ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td a.ui-state-active, #ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td a.ui-state-active:hover, body #booked-profile-page input[type=submit].button-primary:hover, body .booked-list-view button.button:hover, body .booked-list-view input[type=submit].button-primary:hover, body table.booked-calendar input[type=submit].button-primary:hover, body .booked-modal input[type=submit].button-primary:hover, body table.booked-calendar th, body table.booked-calendar thead, body table.booked-calendar thead th, body table.booked-calendar .booked-appt-list .timeslot .timeslot-people button:hover, body #booked-profile-page .booked-profile-header, body #booked-profile-page .booked-tabs li.active a, body #booked-profile-page .booked-tabs li.active a:hover, body #booked-profile-page .appt-block .google-cal-button > a:hover, #ui-datepicker-div.booked_custom_date_picker .ui-datepicker-header {
+        background: #c4f2d4 !important;
+    }
+
+    body #booked-profile-page input[type=submit].button-primary:hover, body table.booked-calendar input[type=submit].button-primary:hover, body .booked-list-view button.button:hover, body .booked-list-view input[type=submit].button-primary:hover, body .booked-modal input[type=submit].button-primary:hover, body table.booked-calendar th, body table.booked-calendar .booked-appt-list .timeslot .timeslot-people button:hover, body #booked-profile-page .booked-profile-header, body #booked-profile-page .appt-block .google-cal-button > a:hover {
+        border-color: #c4f2d4 !important;
+    }
+
+    body table.booked-calendar tr.days, body table.booked-calendar tr.days th, body .booked-calendarSwitcher.calendar, body #booked-profile-page .booked-tabs, #ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar thead, #ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar thead th {
+        background: #039146 !important;
+    }
+
+    body table.booked-calendar tr.days th, body #booked-profile-page .booked-tabs {
+        border-color: #039146 !important;
+    }
+
+    #ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td.ui-datepicker-today a, #ui-datepicker-div.booked_custom_date_picker table.ui-datepicker-calendar tbody td.ui-datepicker-today a:hover, body #booked-profile-page input[type=submit].button-primary, body table.booked-calendar input[type=submit].button-primary, body .booked-list-view button.button, body .booked-list-view input[type=submit].button-primary, body .booked-list-view button.button, body .booked-list-view input[type=submit].button-primary, body .booked-modal input[type=submit].button-primary, body table.booked-calendar .booked-appt-list .timeslot .timeslot-people button, body #booked-profile-page .booked-profile-appt-list .appt-block.approved .status-block, body #booked-profile-page .appt-block .google-cal-button > a, body .booked-modal p.booked-title-bar, body table.booked-calendar td:hover .date span, body .booked-list-view a.booked_list_date_picker_trigger.booked-dp-active, body .booked-list-view a.booked_list_date_picker_trigger.booked-dp-active:hover, .booked-ms-modal .booked-book-appt /* Multi-Slot Booking */ {
+        background: #56c477;
+    }
+
+    body #booked-profile-page input[type=submit].button-primary, body table.booked-calendar input[type=submit].button-primary, body .booked-list-view button.button, body .booked-list-view input[type=submit].button-primary, body .booked-list-view button.button, body .booked-list-view input[type=submit].button-primary, body .booked-modal input[type=submit].button-primary, body #booked-profile-page .appt-block .google-cal-button > a, body table.booked-calendar .booked-appt-list .timeslot .timeslot-people button, body .booked-list-view a.booked_list_date_picker_trigger.booked-dp-active, body .booked-list-view a.booked_list_date_picker_trigger.booked-dp-active:hover {
+        border-color: #56c477;
+    }
+
+    body .booked-modal .bm-window p i.fa, body .booked-modal .bm-window a, body .booked-appt-list .booked-public-appointment-title, body .booked-modal .bm-window p.appointment-title, .booked-ms-modal.visible:hover .booked-book-appt {
+        color: #56c477;
+    }
+
+    .booked-appt-list .timeslot.has-title .booked-public-appointment-title {
+        color: inherit;
+    }
+    </style>
+
+    <link rel='stylesheet' id='revslider-material-icons-css' href='https://cuttlefishdecor.com/wp-content/plugins/revslider/public/assets/fonts/material/material-icons.css?ver=6.5.22' type='text/css' media='all'/>
+    <link rel='stylesheet' id='revslider-basics-css-css' href='https://cuttlefishdecor.com/wp-content/plugins/revslider/admin/assets/css/basics.css?ver=6.5.22' type='text/css' media='all'/>
+    <link rel='stylesheet' id='rs-color-picker-css-css' href='https://cuttlefishdecor.com/wp-content/plugins/revslider/admin/assets/css/tp-color-picker.css?ver=6.5.22' type='text/css' media='all'/>
+    <link rel='stylesheet' id='revbuilder-ddTP-css' href='https://cuttlefishdecor.com/wp-content/plugins/revslider/admin/assets/css/ddTP.css?ver=6.5.22' type='text/css' media='all'/>
+    <link rel='stylesheet' id='rs-roboto-css' href='//fonts.googleapis.com/css?family=Roboto&#038;ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='tp-material-icons-css' href='//fonts.googleapis.com/icon?family=Material+Icons&#038;ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='dashicons-css' href='https://cuttlefishdecor.com/wp-includes/css/dashicons.min.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='admin-bar-css' href='https://cuttlefishdecor.com/wp-includes/css/admin-bar.min.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='fil-adent-css' href='https://cuttlefishdecor.com/wp-content/plugins/font-icons-loader/fonts/adent/style.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='fil-elegant-icons-css' href='https://cuttlefishdecor.com/wp-content/plugins/font-icons-loader/fonts/elegant-icons/style.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='fil-medicon-css' href='https://cuttlefishdecor.com/wp-content/plugins/font-icons-loader/fonts/medicon/style.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='fil-plastic-css' href='https://cuttlefishdecor.com/wp-content/plugins/font-icons-loader/fonts/plastic/style.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='fil-psycon-css' href='https://cuttlefishdecor.com/wp-content/plugins/font-icons-loader/fonts/psycon/style.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='fil-theme-fonts-css' href='https://cuttlefishdecor.com/wp-content/plugins/font-icons-loader/fonts/theme-fonts/style.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='wp-block-library-css' href='https://cuttlefishdecor.com/wp-includes/css/dist/block-library/style.min.css?ver=6.0' type='text/css' media='all'/>
+
+    <style id='wp-block-library-theme-inline-css' type='text/css'>
+    .wp-block-audio figcaption {
+        color: #555;
+        font-size: 13px;
+        text-align:center
+    }
+
+    .is-dark-theme .wp-block-audio figcaption {
+        color:hsla(0, 0%, 100%, .65)
+    }
+
+    .wp-block-code {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-family: Menlo, Consolas, monaco, monospace;
+        padding:.8em 1em
+    }
+
+    .wp-block-embed figcaption {
+        color: #555;
+        font-size: 13px;
+        text-align:center
+    }
+
+    .is-dark-theme .wp-block-embed figcaption {
+        color:hsla(0, 0%, 100%, .65)
+    }
+
+    .blocks-gallery-caption {
+        color: #555;
+        font-size: 13px;
+        text-align:center
+    }
+
+    .is-dark-theme .blocks-gallery-caption {
+        color:hsla(0, 0%, 100%, .65)
+    }
+
+    .wp-block-image figcaption {
+        color: #555;
+        font-size: 13px;
+        text-align:center
+    }
+
+    .is-dark-theme .wp-block-image figcaption {
+        color:hsla(0, 0%, 100%, .65)
+    }
+
+    .wp-block-pullquote {
+        border-top: 4px solid;
+        border-bottom: 4px solid;
+        margin-bottom: 1.75em;
+        color:currentColor
+    }
+
+    .wp-block-pullquote__citation, .wp-block-pullquote cite, .wp-block-pullquote footer {
+        color: currentColor;
+        text-transform: uppercase;
+        font-size: .8125em;
+        font-style:normal
+    }
+
+    .wp-block-quote {
+        border-left: .25em solid;
+        margin: 0 0 1.75em;
+        padding-left:1em
+    }
+
+    .wp-block-quote cite, .wp-block-quote footer {
+        color: currentColor;
+        font-size: .8125em;
+        position: relative;
+        font-style:normal
+    }
+
+    .wp-block-quote.has-text-align-right {
+        border-left: none;
+        border-right: .25em solid;
+        padding-left: 0;
+        padding-right:1em
+    }
+
+    .wp-block-quote.has-text-align-center {
+        border: none;
+        padding-left:0
+    }
+
+    .wp-block-quote.is-large, .wp-block-quote.is-style-large, .wp-block-quote.is-style-plain {
+        border:none
+    }
+
+    .wp-block-search .wp-block-search__label {
+        font-weight:700
+    }
+
+    :where(.wp-block-group.has-background) {
+        padding:1.25em 2.375em
+    }
+
+    .wp-block-separator.has-css-opacity {
+        opacity:.4
+    }
+
+    .wp-block-separator {
+        border: none;
+        border-bottom: 2px solid;
+        margin-left: auto;
+        margin-right:auto
+    }
+
+    .wp-block-separator.has-alpha-channel-opacity {
+        opacity:1
+    }
+
+    .wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+        width:100px
+    }
+
+    .wp-block-separator.has-background:not(.is-style-dots) {
+        border-bottom: none;
+        height:1px
+    }
+
+    .wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots) {
+        height:2px
+    }
+
+    .wp-block-table thead {
+        border-bottom:3px solid
+    }
+
+    .wp-block-table tfoot {
+        border-top:3px solid
+    }
+
+    .wp-block-table td, .wp-block-table th {
+        padding: .5em;
+        border: 1px solid;
+        word-break:normal
+    }
+
+    .wp-block-table figcaption {
+        color: #555;
+        font-size: 13px;
+        text-align:center
+    }
+
+    .is-dark-theme .wp-block-table figcaption {
+        color:hsla(0, 0%, 100%, .65)
+    }
+
+    .wp-block-video figcaption {
+        color: #555;
+        font-size: 13px;
+        text-align:center
+    }
+
+    .is-dark-theme .wp-block-video figcaption {
+        color:hsla(0, 0%, 100%, .65)
+    }
+
+    .wp-block-template-part.has-background {
+        padding: 1.25em 2.375em;
+        margin-top: 0;
+        margin-bottom: 0
+    }
+    </style>
+
+    <link rel='stylesheet' id='wc-blocks-vendors-style-css' href='https://cuttlefishdecor.com/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-style.css?ver=7.4.3' type='text/css' media='all'/>
+    <link rel='stylesheet' id='wc-blocks-style-css' href='https://cuttlefishdecor.com/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-style.css?ver=7.4.3' type='text/css' media='all'/>
+    <link rel='stylesheet' id='wpforms-gutenberg-form-selector-css' href='https://cuttlefishdecor.com/wp-content/plugins/wpforms-lite/assets/css/wpforms-full.min.css?ver=1.7.4.2' type='text/css' media='all'/>
+
+    <style id='global-styles-inline-css' type='text/css'>
+    body {
+        --wp--preset--color--black: #000000;
+        --wp--preset--color--cyan-bluish-gray: #abb8c3;
+        --wp--preset--color--white: #ffffff;
+        --wp--preset--color--pale-pink: #f78da7;
+        --wp--preset--color--vivid-red: #cf2e2e;
+        --wp--preset--color--luminous-vivid-orange: #ff6900;
+        --wp--preset--color--luminous-vivid-amber: #fcb900;
+        --wp--preset--color--light-green-cyan: #7bdcb5;
+        --wp--preset--color--vivid-green-cyan: #00d084;
+        --wp--preset--color--pale-cyan-blue: #8ed1fc;
+        --wp--preset--color--vivid-cyan-blue: #0693e3;
+        --wp--preset--color--vivid-purple: #9b51e0;
+        --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
+        --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
+        --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
+        --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, rgba(255, 105, 0, 1) 0%, rgb(207, 46, 46) 100%);
+        --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg, rgb(238, 238, 238) 0%, rgb(169, 184, 195) 100%);
+        --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg, rgb(74, 234, 220) 0%, rgb(151, 120, 209) 20%, rgb(207, 42, 186) 40%, rgb(238, 44, 130) 60%, rgb(251, 105, 98) 80%, rgb(254, 248, 76) 100%);
+        --wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255, 206, 236) 0%, rgb(152, 150, 240) 100%);
+        --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg, rgb(254, 205, 165) 0%, rgb(254, 45, 45) 50%, rgb(107, 0, 62) 100%);
+        --wp--preset--gradient--luminous-dusk: linear-gradient(135deg, rgb(255, 203, 112) 0%, rgb(199, 81, 192) 50%, rgb(65, 88, 208) 100%);
+        --wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
+        --wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
+        --wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+        --wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');
+        --wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');
+        --wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');
+        --wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');
+        --wp--preset--duotone--midnight: url('#wp-duotone-midnight');
+        --wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');
+        --wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');
+        --wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');
+        --wp--preset--font-size--small: 13px;
+        --wp--preset--font-size--medium: 20px;
+        --wp--preset--font-size--large: 36px;
+        --wp--preset--font-size--x-large: 42px;
+    }
+
+    .has-black-color {
+        color: var(--wp--preset--color--black) !important;
+    }
+
+    .has-cyan-bluish-gray-color {
+        color: var(--wp--preset--color--cyan-bluish-gray) !important;
+    }
+
+    .has-white-color {
+        color: var(--wp--preset--color--white) !important;
+    }
+
+    .has-pale-pink-color {
+        color: var(--wp--preset--color--pale-pink) !important;
+    }
+
+    .has-vivid-red-color {
+        color: var(--wp--preset--color--vivid-red) !important;
+    }
+
+    .has-luminous-vivid-orange-color {
+        color: var(--wp--preset--color--luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-amber-color {
+        color: var(--wp--preset--color--luminous-vivid-amber) !important;
+    }
+
+    .has-light-green-cyan-color {
+        color: var(--wp--preset--color--light-green-cyan) !important;
+    }
+
+    .has-vivid-green-cyan-color {
+        color: var(--wp--preset--color--vivid-green-cyan) !important;
+    }
+
+    .has-pale-cyan-blue-color {
+        color: var(--wp--preset--color--pale-cyan-blue) !important;
+    }
+
+    .has-vivid-cyan-blue-color {
+        color: var(--wp--preset--color--vivid-cyan-blue) !important;
+    }
+
+    .has-vivid-purple-color {
+        color: var(--wp--preset--color--vivid-purple) !important;
+    }
+
+    .has-black-background-color {
+        background-color: var(--wp--preset--color--black) !important;
+    }
+
+    .has-cyan-bluish-gray-background-color {
+        background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+    }
+
+    .has-white-background-color {
+        background-color: var(--wp--preset--color--white) !important;
+    }
+
+    .has-pale-pink-background-color {
+        background-color: var(--wp--preset--color--pale-pink) !important;
+    }
+
+    .has-vivid-red-background-color {
+        background-color: var(--wp--preset--color--vivid-red) !important;
+    }
+
+    .has-luminous-vivid-orange-background-color {
+        background-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-amber-background-color {
+        background-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+    }
+
+    .has-light-green-cyan-background-color {
+        background-color: var(--wp--preset--color--light-green-cyan) !important;
+    }
+
+    .has-vivid-green-cyan-background-color {
+        background-color: var(--wp--preset--color--vivid-green-cyan) !important;
+    }
+
+    .has-pale-cyan-blue-background-color {
+        background-color: var(--wp--preset--color--pale-cyan-blue) !important;
+    }
+
+    .has-vivid-cyan-blue-background-color {
+        background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+    }
+
+    .has-vivid-purple-background-color {
+        background-color: var(--wp--preset--color--vivid-purple) !important;
+    }
+
+    .has-black-border-color {
+        border-color: var(--wp--preset--color--black) !important;
+    }
+
+    .has-cyan-bluish-gray-border-color {
+        border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+    }
+
+    .has-white-border-color {
+        border-color: var(--wp--preset--color--white) !important;
+    }
+
+    .has-pale-pink-border-color {
+        border-color: var(--wp--preset--color--pale-pink) !important;
+    }
+
+    .has-vivid-red-border-color {
+        border-color: var(--wp--preset--color--vivid-red) !important;
+    }
+
+    .has-luminous-vivid-orange-border-color {
+        border-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-amber-border-color {
+        border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+    }
+
+    .has-light-green-cyan-border-color {
+        border-color: var(--wp--preset--color--light-green-cyan) !important;
+    }
+
+    .has-vivid-green-cyan-border-color {
+        border-color: var(--wp--preset--color--vivid-green-cyan) !important;
+    }
+
+    .has-pale-cyan-blue-border-color {
+        border-color: var(--wp--preset--color--pale-cyan-blue) !important;
+    }
+
+    .has-vivid-cyan-blue-border-color {
+        border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+    }
+
+    .has-vivid-purple-border-color {
+        border-color: var(--wp--preset--color--vivid-purple) !important;
+    }
+
+    .has-vivid-cyan-blue-to-vivid-purple-gradient-background {
+        background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;
+    }
+
+    .has-light-green-cyan-to-vivid-green-cyan-gradient-background {
+        background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;
+    }
+
+    .has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
+        background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;
+    }
+
+    .has-luminous-vivid-orange-to-vivid-red-gradient-background {
+        background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;
+    }
+
+    .has-very-light-gray-to-cyan-bluish-gray-gradient-background {
+        background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;
+    }
+
+    .has-cool-to-warm-spectrum-gradient-background {
+        background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;
+    }
+
+    .has-blush-light-purple-gradient-background {
+        background: var(--wp--preset--gradient--blush-light-purple) !important;
+    }
+
+    .has-blush-bordeaux-gradient-background {
+        background: var(--wp--preset--gradient--blush-bordeaux) !important;
+    }
+
+    .has-luminous-dusk-gradient-background {
+        background: var(--wp--preset--gradient--luminous-dusk) !important;
+    }
+
+    .has-pale-ocean-gradient-background {
+        background: var(--wp--preset--gradient--pale-ocean) !important;
+    }
+
+    .has-electric-grass-gradient-background {
+        background: var(--wp--preset--gradient--electric-grass) !important;
+    }
+
+    .has-midnight-gradient-background {
+        background: var(--wp--preset--gradient--midnight) !important;
+    }
+
+    .has-small-font-size {
+        font-size: var(--wp--preset--font-size--small) !important;
+    }
+
+    .has-medium-font-size {
+        font-size: var(--wp--preset--font-size--medium) !important;
+    }
+
+    .has-large-font-size {
+        font-size: var(--wp--preset--font-size--large) !important;
+    }
+
+    .has-x-large-font-size {
+        font-size: var(--wp--preset--font-size--x-large) !important;
+    }
+    </style>
+
+    <link rel='stylesheet' id='booked-icons-css' href='https://cuttlefishdecor.com/wp-content/plugins/booked/assets/css/icons.css?ver=2.3.5' type='text/css' media='all'/>
+    <link rel='stylesheet' id='booked-tooltipster-css' href='https://cuttlefishdecor.com/wp-content/plugins/booked/assets/js/tooltipster/css/tooltipster.css?ver=3.3.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='booked-tooltipster-theme-css' href='https://cuttlefishdecor.com/wp-content/plugins/booked/assets/js/tooltipster/css/themes/tooltipster-light.css?ver=3.3.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='booked-animations-css' href='https://cuttlefishdecor.com/wp-content/plugins/booked/assets/css/animations.css?ver=2.3.5' type='text/css' media='all'/>
+    <link rel='stylesheet' id='booked-css-css' href='https://cuttlefishdecor.com/wp-content/plugins/booked/dist/booked.css?ver=2.3.5' type='text/css' media='all'/>
+    <link rel='stylesheet' id='contact-form-7-css' href='https://cuttlefishdecor.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.5.6.1' type='text/css' media='all'/>
+    <link rel='stylesheet' id='jquery-ui-theme-css' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.min.css?ver=1.11.4' type='text/css' media='all'/>
+    <link rel='stylesheet' id='jquery-ui-timepicker-css' href='https://cuttlefishdecor.com/wp-content/plugins/contact-form-7-datepicker/js/jquery-ui-timepicker/jquery-ui-timepicker-addon.min.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='kswr-front-icons-css' href='https://cuttlefishdecor.com/wp-content/plugins/kaswara/assets/font-icon/icons.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='kswr-front-style-css' href='https://cuttlefishdecor.com/wp-content/plugins/kaswara/front/assets/css/style.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='woocommerce-layout-css' href='https://cuttlefishdecor.com/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=6.5.1' type='text/css' media='all'/>
+    <link rel='stylesheet' id='woocommerce-smallscreen-css' href='https://cuttlefishdecor.com/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=6.5.1' type='text/css' media='only screen and (max-width: 768px)'/>
+    <link rel='stylesheet' id='woocommerce-general-css' href='https://cuttlefishdecor.com/wp-content/themes/aleanta/assets/woocommerce/css/woocommerce.css?ver=6.5.1' type='text/css' media='all'/>
+
+    <style id='woocommerce-inline-inline-css' type='text/css'>
+    .woocommerce form .form-row .required {
+        visibility: visible;
+    }
+    </style>
+    <link rel='stylesheet' id='aleanta-style-css' href='https://cuttlefishdecor.com/wp-content/themes/aleanta/style.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='aleanta-responsive-css' href='https://cuttlefishdecor.com/wp-content/themes/aleanta/css/responsive.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='aleanta-fonts-css' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A300%2C400%2C500%2C600%2C700%7COpen+Sans%3A100%2C100i%2C200%2C200i%2C300%2C300i%2C400%2C400i%2C500%2C500i%2C600%2C600i%2C700%2C700i%2C800%2C800i%2C900%2C900i%7COpen+Sans%3A300%2C300i%2C400%2C400i%2C600%2C700%2C700i%2C800%7COpen+Sans%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900&#038;subset=latin%2Clatin-ext' type='text/css' media='all'/>
+    <link rel='stylesheet' id='aleanta-global-css' href='https://cuttlefishdecor.com/wp-content/themes/aleanta/css/global.css?ver=6.0' type='text/css' media='all'/>
+    <style id='aleanta-global-inline-css' type='text/css'>
+    .animsition-loading {
+        width: 180px !important;
+        height: 180px !important;
+        margin-top: -90px !important;
+        margin-left: -90px !important;
+    }
+    </style>
+
+    <link rel='stylesheet' id='bootstrap-css' href='https://cuttlefishdecor.com/wp-content/themes/aleanta/assets/bootstrap/css/bootstrap.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='font-awesome-css' href='https://cuttlefishdecor.com/wp-content/themes/aleanta/fonts/font-awesome/css/font-awesome.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='fancybox-css' href='https://cuttlefishdecor.com/wp-content/themes/aleanta/assets/fancybox/fancybox.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='owl-css' href='https://cuttlefishdecor.com/wp-content/themes/aleanta/assets/owl/owl.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='bxslider-css' href='https://cuttlefishdecor.com/wp-content/themes/aleanta/assets/bxslider/bxslider.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='flexslider-css' href='https://cuttlefishdecor.com/wp-content/plugins/js_composer/assets/lib/flexslider/flexslider.min.css?ver=6.9.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='slabText-css' href='https://cuttlefishdecor.com/wp-content/themes/aleanta/assets/slabText/css/slabtext.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='animsition-css' href='https://cuttlefishdecor.com/wp-content/themes/aleanta/assets/animsition/animsition.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='easydropdown-css' href='https://cuttlefishdecor.com/wp-content/themes/aleanta/assets/easydropdown/css/easydropdown.metro.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='og-grid-css' href='https://cuttlefishdecor.com/wp-content/themes/aleanta/assets/og-grid/og-grid.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='aleanta-header-css' href='https://cuttlefishdecor.com/wp-content/themes/aleanta/assets/header/header.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='aleanta-header-yamm-css' href='https://cuttlefishdecor.com/wp-content/themes/aleanta/assets/header/yamm.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='select2-css' href='https://cuttlefishdecor.com/wp-content/plugins/woocommerce/assets/css/select2.css?ver=6.5.1' type='text/css' media='all'/>
+    <link rel='stylesheet' id='aleanta-dynamic-styles-css' href='https://cuttlefishdecor.com/wp-admin/admin-ajax.php?action=dynamic_styles&#038;pageID=14868&#038;ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='booked-wc-fe-styles-css' href='https://cuttlefishdecor.com/wp-content/plugins/booked/includes/add-ons/woocommerce-payments//css/frontend-style.css?ver=6.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='wpforms-admin-bar-css' href='https://cuttlefishdecor.com/wp-content/plugins/wpforms-lite/assets/css/admin-bar.min.css?ver=1.7.4.2' type='text/css' media='all'/>
+
+    <style id='wpforms-admin-bar-inline-css' type='text/css'>
+    #wpadminbar .wpforms-menu-notification-counter, #wpadminbar .wpforms-menu-notification-indicator {
+        background-color: #d63638 !important;
+        color: #ffffff !important;
+    }
+    </style>
+    <link rel='stylesheet' id='yoast-seo-adminbar-css' href='https://cuttlefishdecor.com/wp-content/plugins/wordpress-seo/css/dist/adminbar-1900.css' type='text/css' media='all'/>
+    <link rel='stylesheet' id='js_composer_front-css' href='https://cuttlefishdecor.com/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=6.9.0' type='text/css' media='all'/>
+
+    <style>
+        .woocommerce-product-gallery {
+            opacity: 1 !important;
+        }
+        </style>
+
+        <style type="text/css">
+    .recentcomments a {
+        display: inline !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    </style>
+
+    #wpadminbar {
+        display: none;
+    }
+    </style>
+    <style type="text/css" media="screen">
+    html {
+        margin-top: 32px !important;
+    }
+
+    @media screen and (max-width: 782px) {
+        html {
+            margin-top: 46px !important;
+        }
+    }
+    </style>
+
+    <style type="text/css" id="wp-custom-css">
+    html b, html strong {
+        font-weight: 600;
+    }
+
+    html .department-3-item .list-services__description {
+        color: #888;
+    }/* TOP BAR */
+    .header.header-background-white .top-bar {
+        border-bottom: 0;
+        background: #88d4e5;
+    }
+
+    .custom-top-link {
+        margin-top: -10px;
+    }
+
+    .top-nav-box {
+        text-transform: uppercase;
+        background: #1c8fa9;
+    }
+
+    .top-nav-box:hover {
+        background: #f9ac7d
+    }
+
+    .header.header-background-white .top-bar * {
+        color: #fff;
+        font-weight: 300 !important;
+    }
+
+    .header-topbarbox-1 li {
+        position: relative;
+        padding-left: 18px;
+        margin-right: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .header-topbarbox-1 li:before {
+        content: '';
+        border-left: 1px solid #fff;
+        position: absolute;
+        left: 4px;
+        top: 7px;
+        height: 10px;
+    }
+
+    .header-topbarbox-1 ul {
+        position: relative;
+    }
+
+    .header-topbarbox-1 ul:before {
+        content: '';
+        border-left: 1px solid #fff;
+        position: absolute;
+        right: -17px;
+        top: 11px;
+        height: 10px;
+    }/* ICONS BOX */
+    .kswr-theelement [class * =" km-icon-"], .kswr-theelement [class^=km-icon-] {
+        display: inline-block;
+        width: 100%;
+        position: relative;
+        top: 4px;
+    }/* SERVICES BOX */
+    .service-item-image {
+        max-height: 180px;
+        overflow: hidden;
+    }
+
+    html body .sidebar-services .active a:before, .sidebar-services .current-cat a:before {
+        border-color: #c78a64 !important;
+    }
+
+    html body .service-item .btn {
+        display: none;
+    }
+
+    .cpi-link-more {
+        display: none;
+    }
+
+    html .vc_custom_1539093492137 {
+        padding-right: 30px !important;
+        padding-left: 30px !important;
+        background-image: none !important;
+    }
+
+    html .vc_custom_1539093492137, html .vc_custom_1539093455261, html .vc_custom_1539092726624 {
+        background-image: none !important;
+    }/* RESPONSIVE STYLES */
+    @media (max-width: 767px) {
+        html .vc_custom_1536260399416 {
+            margin-top: 0 !important;
+        }
+
+        html .testimonials-row .slick-slider {
+            padding: 20px !important;
+        }
+
+        html .testimonials-row .km-testimonial[data-style=style2] .km-testimonial-content {
+            margin-bottom: 10px;
+        }
+
+        .cpi-link-more, .custom-post-item.custom-post-cpstyle03 ul {
+            display: none !important;
+        }
+
+        html .vc_custom_1539093455261, html .vc_custom_1539092726624, html .vc_custom_1539093492137 {
+            padding-right: 30px !important;
+            padding-left: 30px !important;
+            background: none !important;
+        }
+
+        html .custom-post-item.custom-post-cpstyle03 h4 {
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        html .kswr-full-section {
+            overflow: hidden;
+        }
+
+        html .department-3-content {
+            width: 100% !important;
+            float: none !important;
+        }
+
+        html .kswr-pricing-price {
+            position: relative;
+            top: 3px;
+        }
+
+        html .vc_custom_1539185007374 {
+            margin-top: 0 !important;
+        }
+
+        .box-features .vc_column_container {
+            height: auto !important;
+        }
+    }
+    </style>
+    <style type="text/css" data-type="vc_custom-css">
+    .department-3-item:nth-of-type(4), .department-3-item:nth-of-type(5), .department-3-item:nth-of-type(6) {
+        border-bottom: 0 !important;
+    }
+    </style>
+    <style type="text/css" data-type="vc_shortcodes-custom-css">
+    .vc_custom_1539095145084 {
+        background-image: url(https://aleanta.templines.org/psych/wp-content/uploads/2018/10/bg568.jpg?id=15796) !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+    }
+
+    .vc_custom_1539095445517 {
+        background-color: #fff5ee !important;
+    }
+
+    .vc_custom_1539092692170 {
+        background-image: url(https://aleanta.templines.org/psych/wp-content/uploads/2018/10/serv01.jpg?id=15778) !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+    }
+
+    .vc_custom_1539092726624 {
+        padding-right: 65px !important;
+        padding-left: 30px !important;
+        background-image: url(https://aleanta.templines.org/psych/wp-content/uploads/2018/10/ser01-3.jpg?id=15779) !important;
+    }
+
+    .vc_custom_1539093173915 {
+        background-image: url(https://aleanta.templines.org/psych/wp-content/uploads/2018/10/couple-ter.jpg?id=15782) !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+    }
+
+    .vc_custom_1539093455261 {
+        padding-right: 65px !important;
+        padding-left: 30px !important;
+        background-image: url(https://aleanta.templines.org/psych/wp-content/uploads/2018/10/ser02-1.jpg?id=15785) !important;
+    }
+
+    .vc_custom_1539093210705 {
+        background-image: url(https://aleanta.templines.org/psych/wp-content/uploads/2018/10/child-ter.jpg?id=15783) !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+    }
+
+    .vc_custom_1539093492137 {
+        padding-right: 65px !important;
+        padding-left: 30px !important;
+        background-image: url(https://aleanta.templines.org/psych/wp-content/uploads/2018/10/ser03.jpg?id=15786) !important;
+    }
+
+    .vc_custom_1546280373949 {
+        background-color: #f4f5f5 !important;
+    }
+
+    .vc_custom_1546280455768 {
+        background-color: #f6f6f6 !important;
+    }
+
+    .vc_custom_1539183167973 {
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .vc_custom_1551971516741 {
+        margin-top: -405px !important;
+        padding-left: 15% !important;
+        background-color: #f9ac7d !important;
+    }
+    </style>
+
+    <style>
+        .wpb_animate_when_almost_visible {
+            opacity: 1;
+        }
+        </style>
