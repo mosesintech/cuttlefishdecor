@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import Seo from "../Seo"
+// import Seo from "../Seo"
 import Header from "./Header"
 import Footer from "./Footer"
 // import "../../styles/index.css"
@@ -18,7 +18,7 @@ const Layout: React.FC<LayoutProps> = ({
 }) => {
   return (
     <>
-      <Seo title={title} />
+      {/* <Seo title={title} /> */}
       <Header />
       {children}
       <Footer />
